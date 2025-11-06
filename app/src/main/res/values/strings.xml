@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FitCount</string>
+    
+    <!-- Navigation -->
+    <string name="nav_create_workout">بناء التمرين</string>
+    <string name="nav_my_workouts">التمارين الجاهزة</string>
+    <string name="nav_history">السجل والإحصائيات</string>
+    
+    <!-- Create Workout Screen -->
+    <string name="add_exercise">إضافة تمرين جديد</string>
+    <string name="exercise_name_hint">اسم التمرين</string>
+    <string name="sets">المجموعات</string>
+    <string name="reps">العدات</string>
+    <string name="rest_time">وقت الراحة</string>
+    <string name="save_workout">حفظ التمرين</string>
+    <string name="delete">حذف</string>
+    
+    <!-- Workout Session -->
+    <string name="next_rest">تمّ! ➜ راحة</string>
+    <string name="skip_rest">تخطي الراحة</string>
+    <string name="pause">إيقاف مؤقت</string>
+    <string name="exercise_complete">تم التمرين!</string>
+    <string name="remaining_reps">متبقي %1$d</string>
+    <string name="set_progress">مجموعة %1$d من %2$d</string>
+    
+    <!-- Common -->
+    <string name="cancel">إلغاء</string>
+    <string name="confirm">تأكيد</string>
+    <string name="edit">تعديل</string>
+    <string name="start">ابدأ</string>
+</resources>

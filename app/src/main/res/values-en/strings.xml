@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">FitCount</string>
+    
+    <!-- Navigation -->
+    <string name="nav_create_workout">Create Workout</string>
+    <string name="nav_my_workouts">My Workouts</string>
+    <string name="nav_history">History &amp; Stats</string>
+    
+    <!-- Create Workout Screen -->
+    <string name="add_exercise">Add New Exercise</string>
+    <string name="exercise_name_hint">Exercise Name</string>
+    <string name="sets">Sets</string>
+    <string name="reps">Reps</string>
+    <string name="rest_time">Rest Time</string>
+    <string name="save_workout">Save Workout</string>
+    <string name="delete">Delete</string>
+    
+    <!-- Workout Session -->
+    <string name="next_rest">Done! ➜ Rest</string>
+    <string name="skip_rest">Skip Rest</string>
+    <string name="pause">Pause</string>
+    <string name="exercise_complete">Exercise Complete!</string>
+    <string name="remaining_reps">%1$d remaining</string>
+    <string name="set_progress">Set %1$d of %2$d</string>
+    
+    <!-- Common -->
+    <string name="cancel">Cancel</string>
+    <string name="confirm">Confirm</string>
+    <string name="edit">Edit</string>
+    <string name="start">Start</string>
+</resources>
