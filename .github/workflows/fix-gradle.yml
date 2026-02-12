@@ -1,0 +1,33 @@
+name: Fix Gradle Wrapper
+
+on:
+  push:
+    branches: [ main ]
+
+permissions:
+  contents: write # هذا الإذن ضروري ليتمكن البوت من إضافة الملفات لمستودعك
+
+jobs:
+  fix-wrapper:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      
+      - name: Set up Java
+        uses: actions/setup-java@v4
+        with:
+          java-version: '17'
+          distribution: 'temurin'
+
+      - name: Generate Gradle Wrapper
+        # هذا الأمر ينشئ الملفات المفقودة (gradlew, gradlew.bat, wrapper jar)
+        # اخترنا الإصدار 8.5 لأنه مستقر ومتوافق
+        run: gradle wrapper --gradle-version 8.5
+
+      - name: Commit and Push changes
+        run: |
+          git config --global user.name "GitHub Action"
+          git config --global user.email "action@github.com"
+          git add gradlew gradlew.bat gradle/wrapper/
+          git commit -m "Add missing Gradle Wrapper files" || echo "No changes to commit"
+          git push
