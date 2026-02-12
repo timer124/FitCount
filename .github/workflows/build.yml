@@ -1,4 +1,4 @@
-name: Build APK Manual
+name: Build APK Final
 
 on:
   push:
@@ -19,15 +19,17 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    # هنا الحل: تحميل Gradle يدوياً لتجاوز مشاكل السيرفر
-    - name: Download and Install Gradle
+    # هذا هو الحل السحري:
+    # 1. نحمل Gradle 8.2 (نسخة متوافقة مع مشروعك)
+    # 2. نفك الضغط
+    # 3. نبني التطبيق مباشرة بهذه النسخة
+    - name: Download Gradle and Build
       run: |
-        wget https://services.gradle.org/distributions/gradle-8.4-bin.zip -P /tmp
-        sudo unzip -d /opt/gradle /tmp/gradle-8.4-bin.zip
-        echo "/opt/gradle/gradle-8.4/bin" >> $GITHUB_PATH
-
-    - name: Build APK
-      run: gradle assembleDebug --no-daemon --stacktrace
+        wget -q https://services.gradle.org/distributions/gradle-8.2-bin.zip
+        unzip -q gradle-8.2-bin.zip
+        export GRADLE_HOME=$PWD/gradle-8.2
+        export PATH=$GRADLE_HOME/bin:$PATH
+        gradle assembleDebug --no-daemon --stacktrace
     
     - name: Upload APK
       uses: actions/upload-artifact@v4
