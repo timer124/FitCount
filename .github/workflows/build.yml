@@ -1,4 +1,4 @@
-name: Build APK Fixed
+name: Build APK Manual
 
 on:
   push:
@@ -19,14 +19,15 @@ jobs:
         java-version: '17'
         distribution: 'temurin'
 
-    # هذه الخطوة ستقوم بتثبيت نسخة Gradle 8.5 المتوافقة مع مشروعك
-    - name: Setup Gradle 8.5
-      uses: gradle/actions/setup-gradle@v3
-      with:
-        gradle-version: '8.5'
-    
+    # هنا الحل: تحميل Gradle يدوياً لتجاوز مشاكل السيرفر
+    - name: Download and Install Gradle
+      run: |
+        wget https://services.gradle.org/distributions/gradle-8.4-bin.zip -P /tmp
+        sudo unzip -d /opt/gradle /tmp/gradle-8.4-bin.zip
+        echo "/opt/gradle/gradle-8.4/bin" >> $GITHUB_PATH
+
     - name: Build APK
-      run: gradle assembleDebug --no-daemon
+      run: gradle assembleDebug --no-daemon --stacktrace
     
     - name: Upload APK
       uses: actions/upload-artifact@v4
